@@ -10,9 +10,6 @@ $sql = 'SELECT * FROM users';
 $result = mysqli_query($conn,$sql);
 $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
-foreach($users as $user){
-  echo $user['firstName'];
-}
 
 
 
@@ -58,6 +55,10 @@ mysqli_close($conn);
 </form>
 
 
+<?php foreach($users as $user) :?>
+ <h1><?php echo htmlspecialchars($user['firstName']) .' ' . htmlspecialchars($user['lastName']) .'<br> ' 
+ . htmlspecialchars($user['email']);?> </h1> 
+<?php endforeach;?>
 
 
 
