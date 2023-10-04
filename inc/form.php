@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
     $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
     $email = mysqli_real_escape_string($conn, $_POST['email']) ;
 
-    $sql = "INSERT INTO users(firstName, lastName, email)
+    $sql = "INSERT INTO users (firstName, lastName, email)
      VALUES ('$firstName' , '$lastName', '$email') ";
 
 if(empty($firstName)){
