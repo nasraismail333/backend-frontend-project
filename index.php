@@ -77,19 +77,38 @@ mysqli_close($conn);
 </ul>
 
 
+<form class="mt-5" action="index.php" method="POST">
+<h3>الرجاء أدخل معلوماتك</h3>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">الاسم الأول</label>
+    <input type="text" name="firstName" class="form-control" id="exampleInputEmail1" value="<?php echo $firstName  ?>" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text error"><?php echo $errors['firstNameError']   ?></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">الاسم الأخير</label>
+    <input type="text" name="lastName" class="form-control" id="exampleInputEmail1" value="<?php echo $lastName  ?>" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text error"> <?php echo $errors['lastNameError'] ?></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">البريد الالكتروني</label>
+    <input type="text" name="email" class="form-control" id="exampleInputEmail1" value="<?php echo $email  ?>" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text error"><?php echo $errors['emailError'] ?></div>
+  </div>
+  
+  
+  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+</form>
 
 
-<div class="form-floating mb-3">
-  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput">Email address</label>
-</div>
-<div class="form-floating">
-  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-  <label for="floatingPassword">Password</label>
-</div>
 
 </div>
 <br>
+
+<!--
+  delete
 <form action="index.php" method="POST">
     <input type="text" name="firstName" placeholder="first name" id="firstName">
     <input type="text" name="lastName"placeholder="last Name"  id="lastName">
@@ -97,6 +116,7 @@ mysqli_close($conn);
    <input type="submit" name="submit" id="submit" value="send">
 
 </form>
+ -->
 
 
 <?php foreach($users as $user) :?>
