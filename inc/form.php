@@ -16,13 +16,9 @@ $errors = [
 if(isset($_POST['submit'])){
     //echo $firstname . '/ '. $lastname .'// '.$email;
 
-    $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
-    $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']) ;
+    
 
-    $sql = "INSERT INTO users (firstName, lastName, email)
-     VALUES ('$firstName' , '$lastName', '$email') ";
-
+    
 if(empty($firstName)){
     $errors['firstNameError'] = 'first name is empty';
    // echo 'first name is empty';
@@ -35,18 +31,37 @@ if(empty($firstName)){
 }elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
     $errors['emailError'] = 'the email is unavailable';
     //echo 'the email is unavailable';
-}else{
+}
+if(!array_filter($errors)){
+    $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
+    $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']) ;
+
+    $sql = "INSERT INTO users (firstName, lastName, email)
+     VALUES ('$firstName' , '$lastName', '$email') ";
+
+
     if(mysqli_query($conn, $sql)){
-        header('Location: index.php');
-     }else{
-         echo 'Error: '. mysqli_error($conn);
-     }
-
+        header('Location: ' . $_SERVER['PHP_SELF'] );
+    }else{
+        echo 'Error: '. mysqli_error($conn);
+    }
 }
-
 }
+/*
+
+//tempority move
 
 
+
+
+
+
+
+
+
+
+*/
 ?>
 
 
