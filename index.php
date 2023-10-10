@@ -48,19 +48,25 @@ echo '</pre>';
    
 
 
+   <div class="position-relative  text-center">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
 
 
       <h1 class="display-4 fw-normal">اربح معنا</h1>
       <p class="lead fw-normal">باقي على فتح التسجيل</p>
       <p class="lead fw-normal">للسحب على ربح نسخة مجانية من برنامج </p>
-      <p class="lead fw-normal"></p>
+      <h3 id="demo"></h3>
 
+      <p class="lead fw-normal"></p>
       <a class="btn btn-outline-secondary" href="#">Coming soon</a>
     
+      </div>
+
+</div>
 
 
 
-
+  
 <ul class="list-group list-group-flush">
   <li class="list-group-item"> تابع البث المباشر على صفحتي على الفيس بوك بالتاريخ المذكور أعلاه</li>
   <li class="list-group-item">  أقوم ببث مباشر لمدة ساعة عبارة عن أسئلة وأجوبة حرة للجميع </li>
@@ -70,8 +76,7 @@ echo '</pre>';
 </ul>
 
  
-  
-
+ 
 
 
 <div class="position-relative  text-center">
@@ -103,7 +108,7 @@ echo '</pre>';
 </form>
 
 </div>
-    
+
   </div>
 
 
@@ -127,10 +132,10 @@ echo '</pre>';
 </form>
  -->
 
-<div class="row">
+<div class="row mb-5 pb-6">
 <?php foreach($users as $user) :?>
   <div class="col-sm-6">
-    <div class="card">
+    <div class="card my-2 bg-light">
       <div class="card-body">
  <h5 class="card-title"><?php echo htmlspecialchars($user['firstName']) .' ' . htmlspecialchars($user['lastName'])?> </h5> <br>  
   <p class="card-text"> <?php echo htmlspecialchars($user['email']) ?></p>
@@ -139,7 +144,10 @@ echo '</pre>';
 </div>
 <?php endforeach;?>
 </div>
- 
+
+<?php include_once './parts/footer.php'; ?>
+
+
 
 
 
