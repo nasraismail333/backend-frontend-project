@@ -23,12 +23,12 @@ echo '</pre>';
 
 
 /* 
-
+mysqli_free_result($result);
+  mysqli_close($conn);
 
   */
   //
-  mysqli_free_result($result);
-  mysqli_close($conn);
+  
 ?>
 
 
@@ -49,24 +49,20 @@ echo '</pre>';
 
 
    <div class="position-relative  text-center">
-    <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <div class="col-md-5 p-lg-5 mx-auto ">
 
-
+      <img src="images/student.png" alt="">
       <h1 class="display-4 fw-normal">اربح معنا</h1>
       <p class="lead fw-normal">باقي على فتح التسجيل</p>
       <p class="lead fw-normal">للسحب على ربح نسخة مجانية من برنامج </p>
       <h3 id="demo"></h3>
 
       <p class="lead fw-normal"></p>
-      <a class="btn btn-outline-secondary" href="#">Coming soon</a>
     
       </div>
 
-</div>
-
-
-
-  
+<div class="container">
+  <h3> للدخول في السحب اتبع ما يلي  </h3>
 <ul class="list-group list-group-flush">
   <li class="list-group-item"> تابع البث المباشر على صفحتي على الفيس بوك بالتاريخ المذكور أعلاه</li>
   <li class="list-group-item">  أقوم ببث مباشر لمدة ساعة عبارة عن أسئلة وأجوبة حرة للجميع </li>
@@ -75,9 +71,14 @@ echo '</pre>';
   <li class="list-group-item"> الرابح سيحصل على نسخة مجانية من برنامج كامتاري </li>
 </ul>
 
- 
- 
+</div>
 
+</div>
+
+
+ 
+ 
+<div class="container">
 
 <div class="position-relative  text-center">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
@@ -112,9 +113,8 @@ echo '</pre>';
   </div>
 
 
-
 <!-- 
-</div>
+<div id="demo">jjjjjjjjjjjjjj</div>
  -->
 
 
@@ -132,20 +132,111 @@ echo '</pre>';
 </form>
  -->
 
-<div class="row mb-5 pb-6">
-<?php foreach($users as $user) :?>
+
+ 
+ <!--
+  delete
+   <button id="winner" type="button" class="btn btn-primary"> اختيار الرابح </button>-->
+
+    <div class="loader-con">
+   <div id="loader">
+	<canvas id="circularLoader" width="200" height="200"></canvas>
+</div>
+</div>
+
+ <!-- Button trigger modal -->
+
+ <div class="d-grid gap-2 col-6 mx-auto my-5">
+<button type="button" id="winner" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
+  
+
+اختيار الرابح
+</button>
+</div>
+<!-- Modal -->
+
+<!--  -->
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+
+      <h5 class="modal-title" id="modalLabel"> الرابح في المسابقة </h5>
+
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <?php foreach($users as $user) :?>
+        <h1 class="display-3 text-center modal-title" id="exampleModalLabel"> <?php echo htmlspecialchars($user['firstName']) .' ' . htmlspecialchars($user['lastName'])?></h1>
+        <?php endforeach;?>
+      </div>
+      
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        الرابح
+      </div>
+      
+  </div>
+</div -->
+        
+
+<!--
+div id="cards" class="row mb-5 pb-6">
+
   <div class="col-sm-6">
     <div class="card my-2 bg-light">
       <div class="card-body">
- <h5 class="card-title"><?php echo htmlspecialchars($user['firstName']) .' ' . htmlspecialchars($user['lastName'])?> </h5> <br>  
-  <p class="card-text"> <?php echo htmlspecialchars($user['email']) ?></p>
+ <h5 class="card-title"> </h5> <br>  
+  <p class="card-text"> ?php echo htmlspecialchars($user['email']) ?></p>
     </div>
   </div>
 </div>
-<?php endforeach;?>
 </div>
+-->
 
-<?php include_once './parts/footer.php'; ?>
+
+
+
+
+
+
+
+
+
+ 
+<!-- 
+delete
+
+<div id="cards" class="row mb-5 pb-6">
+
+  <div class="col-sm-6">
+    <div class="card my-2 bg-light">
+      <div class="card-body">
+ <h5 class="card-title"> </h5> <br>  
+  <p class="card-text">    <delete <php echo htmlspecialchars($user['email']) ?></p>
+    </div>
+  </div>
+</div>
+</div>
+ -->
+
+
+
+<?php include_once './parts/footer.php';
+
+mysqli_free_result($result);
+  mysqli_close($conn);
+?>
 
 
 
